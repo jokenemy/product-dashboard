@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/jokenemy/product-dashboard.git/static/css/main.e6c13ad2.css",
+    "main.js": "/jokenemy/product-dashboard.git/static/js/main.95d1fad3.js",
+    "static/js/453.3c0f6ac7.chunk.js": "/jokenemy/product-dashboard.git/static/js/453.3c0f6ac7.chunk.js",
+    "index.html": "/jokenemy/product-dashboard.git/index.html",
+    "main.e6c13ad2.css.map": "/jokenemy/product-dashboard.git/static/css/main.e6c13ad2.css.map",
+    "main.95d1fad3.js.map": "/jokenemy/product-dashboard.git/static/js/main.95d1fad3.js.map",
+    "453.3c0f6ac7.chunk.js.map": "/jokenemy/product-dashboard.git/static/js/453.3c0f6ac7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.95d1fad3.js"
+  ]
+}
