@@ -1,0 +1,85 @@
+.cadastro-container {
+  background-color: #e9e6dc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.cadastro-card {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  background-color: #f4f1e5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+.form-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2b2b2b;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #b4d4c3; 
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+
+button:hover {
+  background-color: #93b4a2; 
+}
+
+button:active {
+  background-color: #6b8c7a; 
+  transform: scale(0.97); 
+}
+
+
+.image-section {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e');
+  background-size: cover;
+  background-position: center;
+}
+
+.mensagem {
+  margin-top: 16px;
+  font-weight: bold;
+}
