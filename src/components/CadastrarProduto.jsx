@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CadastroProduto.css";
+import "./CadastrarProduto.css";
 
 const CadastroProduto = () => {
   const [formData, setFormData] = useState({
