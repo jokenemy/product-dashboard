@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "nome": "Camisa Polo",
+      "preco": 79.99,
+      "descricao": "Camisa polo 100% algodão", 
+       "imagem" :"https://media.istockphoto.com/id/699857280/pt/foto/black-polo-shirt-clothes.jpg?s=612x612&w=0&k=20&c=ZmMV7tA5WC0cYhrdqGWzplZUrHa5xgvCT894cMCz3IQ=" },
+    {
+      "id": 2,
+      "nome": "Calça Jeans",
+      "preco": 120.00,
+      "descricao": "Calça jeans azul escura",
+      "imagem": "https://www.hangar33.com.br/dw/image/v2/BFCG_PRD/on/demandware.static/-/Sites-masterCatalog_Lunelli/default/dwdbb6d62d/large/hangar33-1.75854-000156-D1.jpg?sw=900&sfrm=jpg&sm=fit&q=80"
+    }
+  ]
+  
