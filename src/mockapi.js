@@ -1,10 +1,11 @@
-const API_URL = https//686d00cd14219674dcc9fce0.mockapi.io/:endpoint = 'produtos';
+const API_URL = "https//686d00cd14219674dcc9fce0.mockapi.io/Produtos"; 
 
 export async function buscarProdutos() {
   const response = await fetch(API_URL);
   const data = await response.json();
   return data;
 }
+
 export async function buscarProdutoPorId(id) {
   const response = await fetch(`${API_URL}/${id}`);
   if (!response.ok) {
@@ -40,6 +41,7 @@ export async function adicionarProduto(produto) {
   
   return await response.json();
 }
+
 export async function atualizarProduto(id, produto) {
   const response = await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
@@ -88,7 +90,6 @@ export async function adicionarCategoria(categoria) {
     },
     body: JSON.stringify({ nome: categoria.nome })
   });
-  
   if (!response.ok) {
     throw new Error('Erro ao adicionar categoria');
   }

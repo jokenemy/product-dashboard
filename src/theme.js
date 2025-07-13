@@ -46,6 +46,7 @@ const theme = createTheme({
             },
         },
     },
+    
     MuiButton: {
         styleOverrides: {
             root: {
@@ -60,4 +61,5 @@ const theme = createTheme({
         },
     },
 });
-export default theme;S
+
+export default theme;

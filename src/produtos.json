@@ -1,0 +1,124 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Camiseta Básica",
+      "preco": 29.90,
+      "descricao": "Camiseta de algodão, confortável e durável.",
+      "categoria": "Roupas",
+      "imagem": "https://example.com/imagens/camiseta-basica.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Calça Jeans",
+      "preco": 89.90,
+      "descricao": "Calça jeans clássica, perfeita para o dia a dia.",
+      "categoria": "Roupas",
+      "imagem": "https://example.com/imagens/calca-jeans.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Tênis Esportivo",
+      "preco": 199.90,
+      "descricao": "Tênis confortável para atividades físicas.",
+      "categoria": "Calçados",
+      "imagem": "https://example.com/imagens/tenis-esportivo.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Relógio Digital",
+      "preco": 149.90,
+      "descricao": "Relógio digital com várias funcionalidades.",
+      "categoria": "Acessórios",
+      "imagem": "https://example.com/imagens/relogio-digital.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Mochila Escolar",
+      "preco": 79.90,
+      "descricao": "Mochila espaçosa e resistente, ideal para estudantes.",
+      "categoria": "Acessórios",
+      "imagem": null
+    },
+    {
+      "id": 6,
+      "nome": "Fone de Ouvido Bluetooth",
+      "preco": 129.90,
+      "descricao": "Fone de ouvido sem fio com excelente qualidade de som.",
+      "categoria": "Acessórios",
+      "imagem": "https://example.com/imagens/fone-bluetooth.jpg"
+    },
+    {
+      "id": 7,
+      "nome": "Jaqueta de Couro",
+      "preco": 299.90,
+      "descricao": "Jaqueta de couro estilosa e resistente.",
+      "categoria": "Roupas",
+      "imagem": null
+    },
+    {
+      "id": 8,
+      "nome": "Smartphone Android",
+      "preco": 999.90,
+      "descricao": "Smartphone com tela grande e câmera de alta resolução.",
+      "categoria": "Eletrônicos",
+      "imagem": null
+    },
+    {
+      "id": 9,
+      "nome": "Tablet 10 polegadas",
+      "preco": 499.90,
+      "descricao": "Tablet com tela de 10 polegadas, ideal para entretenimento.",
+      "categoria": "Eletrônicos",
+      "imagem": "https://example.com/imagens/tablet-10.jpg"
+    },
+    {
+      "id": 10,
+      "nome": "Cadeira Gamer",
+      "preco": 399.90,
+      "descricao": "Cadeira ergonômica para gamers, com ajuste de altura.",
+      "categoria": "Móveis",
+      "imagem": null
+    },
+    {
+      "id": 11,
+      "nome": "Mesa de Escritório",
+      "preco": 249.90,
+      "descricao": "Mesa de escritório moderna, ideal para home office.",
+      "categoria": "Móveis",
+      "imagem": "https://example.com/imagens/mesa-escritorio.jpg"
+    },
+    {
+      "id": 12,
+      "nome": "Cafeteira Elétrica",
+      "preco": 159.90,
+      "descricao": "Cafeteira elétrica com capacidade para 12 xícaras.",
+      "categoria": "Eletrodomésticos",
+      "imagem": "https://example.com/imagens/cafeteira-eletrica.jpg"
+    },
+    {
+      "id": 13,
+      "nome": "Liquidificador",
+      "preco": 89.90,
+      "descricao": "Liquidificador potente, ideal para preparar sucos e vitaminas.",
+      "categoria": "Eletrodomésticos",
+      "imagem": null
+    },
+    {
+      "id": 14,
+      "nome": "Aspirador de Pó",
+      "preco": 299.90,
+      "descricao": "Aspirador de pó com alta potência e filtro HEPA.",
+      "categoria": "Eletrodomésticos",
+      "imagem": null
+    },
+    {
+      "id": 15,
+      "nome": "Batedeira Planetária",
+      "preco": 349.90,
+      "descricao": "Batedeira planetária com vários acessórios para confeitaria.",
+      "categoria": "Eletrodomésticos",
+      "imagem": "https://example.com/imagens/batedeira-planetaria.jpg"
+    }
+  ]
+}
