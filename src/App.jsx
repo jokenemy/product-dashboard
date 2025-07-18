@@ -7,7 +7,6 @@ import CadastroProduto from './components/CadastrarProduto';
 import EditarProduto from './pages/EditarProdutos'; 
 import Home from './pages/Home'
 // Importar componentes da branch larissa
-import carregarProdutos from './api.js';
 import Css from './css.jsx';
 import Componentes from './componentes.jsx'
 
