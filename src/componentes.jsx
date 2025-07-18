@@ -1,5 +1,5 @@
 import React from 'react'
-export default function Home({ produtos }) {
+export default function Componentes({ produtos }) {
   return (
     <>
     

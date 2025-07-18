@@ -11,6 +11,41 @@
       "preco": 120.00,
       "descricao": "Calça jeans azul escura",
       "imagem": "https://www.hangar33.com.br/dw/image/v2/BFCG_PRD/on/demandware.static/-/Sites-masterCatalog_Lunelli/default/dwdbb6d62d/large/hangar33-1.75854-000156-D1.jpg?sw=900&sfrm=jpg&sm=fit&q=80"
-    }
+    },
+  {
+    "id": 1,
+    "nome": "Camiseta Básica",
+    "preco": 29.90,
+    "descricao": "Camiseta de algodão, confortável e durável.",
+    "categoria": "Roupas",
+    "imagem": "https://http2.mlstatic.com/camiseta-branca-lisa-basica-tradicional-camisa-malha-algodo-D_NQ_NP_491111-MLB20481948828_112015-F.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Calça Jeans",
+    "preco": 89.90,
+    "descricao": "Calça jeans clássica, perfeita para o dia a dia.",
+    "categoria": "Roupas",
+    "imagem": "https://www.impecavel.com.br/media/catalog/product/cache/1/image/85e4522595efc69f496374d01ef2bf13/8/5/851422-1.jpg"
+  },
+  {
+    "id": 3,
+    "nome": "Jaqueta Jeans",
+    "preco": 179.90,
+    "descricao": "Jaqueta jeans com forro interno, ideal para o frio.",
+    "categoria": "Roupas",
+    "imagem": "https://newscotidiano.com.br/wp-content/uploads/2022/07/Como-combinar-jaqueta-jeans_-Reproducao-Canva.jpg"
+  },
+  {
+    "id": 4,
+    "nome": "Vestido Floral",
+    "preco": 99.90,
+    "descricao": "Vestido leve com estampa floral para dias quentes.",
+    "categoria": "Roupas",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/413300/vestido_kethy_sb25914_floral_119197_1_44f185597b549c3569e69bdc5dee447d.jpeg"
+  }
+
+
   ]
+
   

@@ -10,6 +10,6 @@ export default async function carregarProdutos() {
       return data;
     } catch (error) {
       console.error('Erro na requisição:', error);
-      return[];
+      return[]; 
     }
   }

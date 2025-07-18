@@ -24,25 +24,37 @@ const CadastroProduto = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dados = { ...formData };
-    if (dados.temDesconto === "") delete dados.temDesconto;
+    try {
+      const dados = { ...formData };
 
-    const resp = await fetch("http://localhost:8080/api/produtos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dados),
-    });
+      // Conversões de tipos
+      dados.preco = parseFloat(dados.preco);
+      dados.quantidadeEstoque = parseInt(dados.quantidadeEstoque);
+      if (dados.temDesconto !== "") {
+        dados.temDesconto = dados.temDesconto === "true";
+      } else {
+        delete dados.temDesconto;
+      }
 
-    const resultado = await resp.text();
-    if (resp.ok) {
-      setMensagem("Produto cadastrado com sucesso!");
-      setFormData({
-        nome: "", preco: "", categoria: "", descricao: "",
-        fotos: "", quantidadeEstoque: "", codigoBarras: "",
-        pesoTamanho: "", temDesconto: "", palavrasChave: ""
+      const resp = await fetch("https://686d00cd14219674dcc9fce0.mockapi.io/Produtos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dados),
       });
-    } else {
-      setMensagem(`Erro: ${resultado}`);
+
+      const resultado = await resp.json();
+      if (resp.ok) {
+        setMensagem("Produto cadastrado com sucesso!");
+        setFormData({
+          nome: "", preco: "", categoria: "", descricao: "",
+          fotos: "", quantidadeEstoque: "", codigoBarras: "",
+          pesoTamanho: "", temDesconto: "", palavrasChave: ""
+        });
+      } else {
+        setMensagem(`Erro ao cadastrar: ${JSON.stringify(resultado)}`);
+      }
+    } catch (error) {
+      setMensagem("Erro ao enviar dados: " + error.message);
     }
   };
 
@@ -66,7 +78,12 @@ const CadastroProduto = () => {
               <div className="form-group" key={name}>
                 <label>{label}</label>
                 {type === "textarea" ? (
-                  <textarea name={name} value={formData[name]} onChange={handleChange} required={label.includes("*")}/>
+                  <textarea
+                    name={name}
+                    value={formData[name]}
+                    onChange={handleChange}
+                    required={label.includes("*")}
+                  />
                 ) : (
                   <input
                     type={type || "text"}
@@ -78,6 +95,7 @@ const CadastroProduto = () => {
                 )}
               </div>
             ))}
+
             <div className="form-group">
               <label>Tem desconto?</label>
               <select name="temDesconto" value={formData.temDesconto} onChange={handleChange}>
@@ -86,10 +104,13 @@ const CadastroProduto = () => {
                 <option value="false">Não</option>
               </select>
             </div>
+
             <button type="submit">Cadastrar Produto</button>
           </form>
+
           {mensagem && <div className="mensagem">{mensagem}</div>}
         </div>
+
         <div className="image-section" />
       </div>
     </div>

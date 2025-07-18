@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Css({ produtos }) {
   return (
@@ -42,7 +43,9 @@ export default function Css({ produtos }) {
               height="220"
               image={produto.imagem}
               alt={produto.nome}
-              sx={{ objectFit: 'cover' }}
+              sx={{ objectFit: 'cover' 
+              
+              }}
             />
             <CardContent>
               <Typography variant="h6">{produto.nome}</Typography>
@@ -53,6 +56,8 @@ export default function Css({ produtos }) {
                 Preço: R$ {produto.preco.toFixed(2)}
               </Typography>
             </CardContent>
+             <DeleteIcon />
+    
           </Card>
         ))}
       </Box>
