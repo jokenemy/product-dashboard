@@ -1,4 +1,4 @@
-// Primeira rota. Referente aos clientes que irão manipular o backend
+// Quarta rota. 
 const express = require('express');
 const router = express.Router();
 const clientCtrl = require('../controllers/clientCtrl');

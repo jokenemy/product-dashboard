@@ -1,4 +1,4 @@
-// Primeira rota. Referente aos fornecedores que irão manipular o backend
+// Terceira rota.
 const express = require('express');
 const router = express.Router();
 const supplierCtrl = require('../controllers/supplierCtrl');

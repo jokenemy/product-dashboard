@@ -28,7 +28,13 @@ app.use("/", supplierRoutes);
 const clientRoutes = require('./routes/clientRoutes'); 
 app.use("/", clientRoutes);
 
+// productRoutes funcionando
+const productRoutes = require('./routes/productRoutes'); 
+app.use("/", productRoutes);
 
+// orderRoutes funcionando
+const orderRoutes = require('./routes/orderRoutes'); 
+app.use("/", orderRoutes);
 
 
 
