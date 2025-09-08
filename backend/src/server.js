@@ -11,15 +11,15 @@ app.get("/", (req, res) => {
 });
 
 // As rotas devem estar nessa sequencia: usuarios (userRoutes), categorias (categoryRoutes), fornecedores (supplierRoutes), clientes (clientRoutes), produtos (productRoutes), pedidos (orderRoutes), Avaliações (reviewRoutes), 
-
+app.use(express.json());
 // userRoutes funcionando
 const userRoutes = require('./routes/userRoutes'); 
 app.use("/", userRoutes);
 
-/* categoryRoutes funcionando
+// categoryRoutes funcionando
 const categoryRoutes = require('./routes/categoryRoutes'); 
 app.use("/", categoryRoutes);
-*/
+
 
 
 
