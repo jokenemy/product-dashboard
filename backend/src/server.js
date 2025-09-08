@@ -24,6 +24,10 @@ app.use("/", categoryRoutes);
 const supplierRoutes = require('./routes/supplierRoutes'); 
 app.use("/", supplierRoutes);
 
+// clientRoutes funcionando
+const clientRoutes = require('./routes/clientRoutes'); 
+app.use("/", clientRoutes);
+
 
 
 

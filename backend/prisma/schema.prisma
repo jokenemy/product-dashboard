@@ -28,3 +28,13 @@ generator client {
   contato String
 
 }
+
+    model Client {
+  id      Int    @id @default(autoincrement())
+  nome    String
+  idade   Int
+  sexo    String
+  email   String @unique
+  contato String
+
+  }
