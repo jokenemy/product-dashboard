@@ -20,3 +20,11 @@ generator client {
   tamanho String
   sexo String
 }
+
+    model Supplier {
+  id      Int    @id @default(autoincrement())
+  nome    String
+  email   String @unique
+  contato String
+
+}

@@ -20,6 +20,9 @@ app.use("/", userRoutes);
 const categoryRoutes = require('./routes/categoryRoutes'); 
 app.use("/", categoryRoutes);
 
+// supplierRoutes funcionando
+const supplierRoutes = require('./routes/supplierRoutes'); 
+app.use("/", supplierRoutes);
 
 
 
