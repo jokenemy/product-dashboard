@@ -68,7 +68,7 @@ model Order {
 
 model Review {
   id        Int      @id @default(autoincrement())
-  rating    Int
+  nota    Int
   comentario String
   produtoId Int
   produto   Product  @relation(fields: [produtoId], references: [id])

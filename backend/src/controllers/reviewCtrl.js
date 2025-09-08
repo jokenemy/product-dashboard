@@ -36,11 +36,11 @@ exports.buscaravaliacaoporid = async (req, res) => {
 // POST > Criar uma nova avaliação
 exports.criaravaliacao = async (req, res) => {
   try {
-    const { rating, comentario, produtoId, clienteId } = req.body;
+    const { nota, comentario, produtoId, clienteId } = req.body;
 
     const novaAvaliacao = await prisma.review.create({
       data: {
-        rating,
+        nota,
         comentario,
         produtoId,
         clienteId,
@@ -60,7 +60,7 @@ exports.criaravaliacao = async (req, res) => {
 exports.atualizaravaliacao = async (req, res) => {
   try {
     const { id } = req.params;
-    const { rating, comentario, produtoId, clienteId } = req.body;
+    const { nota, comentario, produtoId, clienteId } = req.body;
 
     const avaliacaoExistente = await prisma.review.findUnique({
       where: { id: parseInt(id) },
@@ -72,7 +72,7 @@ exports.atualizaravaliacao = async (req, res) => {
 
     const avaliacaoAtualizada = await prisma.review.update({
       where: { id: parseInt(id) },
-      data: { rating, comentario, produtoId, clienteId },
+      data: { nota, comentario, produtoId, clienteId },
       include: { produto: true, cliente: true },
     });
 
