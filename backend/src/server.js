@@ -36,6 +36,9 @@ app.use("/", productRoutes);
 const orderRoutes = require('./routes/orderRoutes'); 
 app.use("/", orderRoutes);
 
+// reviewRoutes funcionando
+const reviewRoutes = require('./routes/reviewRoutes'); 
+app.use("/", reviewRoutes);
 
 
 

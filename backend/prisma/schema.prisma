@@ -38,6 +38,7 @@ model Client {
   email   String @unique
   contato String
   pedidos Order[] // relação inversa com Order
+  avaliacoes Review[] // relação inversa com Review
 }
 
 model Product {
@@ -51,6 +52,7 @@ model Product {
   fornecedorId Int
   fornecedor   Supplier @relation(fields: [fornecedorId], references: [id])
   pedidos      Order[]  // relação inversa com Order
+  avaliacoes   Review[] // relação inversa com Review
 }
 
 model Order {
@@ -62,4 +64,14 @@ model Order {
   produto    Product  @relation(fields: [produtoId], references: [id])
   clienteId  Int
   cliente    Client   @relation(fields: [clienteId], references: [id])
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  rating    Int
+  comentario String
+  produtoId Int
+  produto   Product  @relation(fields: [produtoId], references: [id])
+  clienteId Int
+  cliente   Client   @relation(fields: [clienteId], references: [id])
 }
