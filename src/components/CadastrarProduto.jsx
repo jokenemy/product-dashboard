@@ -26,8 +26,6 @@ const CadastroProduto = () => {
     e.preventDefault();
     try {
       const dados = { ...formData };
-
-      // Conversões de tipos
       dados.preco = parseFloat(dados.preco);
       dados.quantidadeEstoque = parseInt(dados.quantidadeEstoque);
       if (dados.temDesconto !== "") {
@@ -36,7 +34,7 @@ const CadastroProduto = () => {
         delete dados.temDesconto;
       }
 
-      const resp = await fetch("https://686d00cd14219674dcc9fce0.mockapi.io/Produtos", {
+      const resp = await fetch("https://686d00cd14219674dcc9fce0.mockapi.io/produtos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dados),
@@ -51,7 +49,7 @@ const CadastroProduto = () => {
           pesoTamanho: "", temDesconto: "", palavrasChave: ""
         });
       } else {
-        setMensagem(`Erro ao cadastrar: ${JSON.stringify(resultado)}`);
+        setMensagem('Erro ao cadastrar: ${JSON.stringify(resultado)}');
       }
     } catch (error) {
       setMensagem("Erro ao enviar dados: " + error.message);
