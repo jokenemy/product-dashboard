@@ -1,11 +1,10 @@
-// Quinta rota
 const prisma = require('../utils/database');
 
 // GET > Listar todos os produtos
 exports.listarprodutos = async (req, res) => {
   try {
     const todosprodutos = await prisma.product.findMany({
-      include: { categoria: true, fornecedor: true }, // inclui as relações
+      include: { categoria: true, fornecedor: true },
     });
     res.status(200).json(todosprodutos);
   } catch (error) {
@@ -22,14 +21,11 @@ exports.buscarprodutoporid = async (req, res) => {
       where: { id: parseInt(id) },
       include: { categoria: true, fornecedor: true },
     });
-
     if (!produto) {
       return res.status(404).json({ error: "Produto não encontrado." });
     }
-
     res.status(200).json(produto);
   } catch (error) {
-    console.error(`Erro ao buscar produto com id ${req.params.id}:`, error.message);
     res.status(500).json({ error: "Erro ao buscar produto." });
   }
 };
@@ -37,77 +33,65 @@ exports.buscarprodutoporid = async (req, res) => {
 // POST > Criar um novo produto
 exports.criarproduto = async (req, res) => {
   try {
-    const { nome, descricao, preco, estoque, categoriaId, fornecedorId } = req.body;
-
+    const { nome, descricao, preco, estoque, categoriaId, fornecedorId, imagemUrl } = req.body;
     const novoproduto = await prisma.product.create({
       data: {
         nome,
         descricao,
         preco,
         estoque,
+        imagemUrl,
         categoriaId,
         fornecedorId,
       },
     });
-
     console.log(`Produto "${nome}" cadastrado com sucesso!`);
     res.status(201).json(novoproduto);
   } catch (error) {
-  console.error("Erro ao criar produto:", error); // mostra erro detalhado
-  res.status(500).json({ error: error.message });
-}
+    console.error("Erro ao criar produto:", error);
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // PUT > Atualizar um produto existente
 exports.atualizarproduto = async (req, res) => {
   try {
     const { id } = req.params;
-    const { nome, descricao, preco, estoque, categoriaId, fornecedorId } = req.body;
-
-    // Verifica se o produto existe antes de atualizar
-    const produtoExistente = await prisma.product.findUnique({
-      where: { id: parseInt(id) },
-    });
-
-    if (!produtoExistente) {
-      return res.status(404).json({ error: "Produto não encontrado." });
-    }
-
+    const { nome, descricao, preco, estoque, categoriaId, fornecedorId, imagemUrl } = req.body;
     const produtoatualizado = await prisma.product.update({
       where: { id: parseInt(id) },
-      data: { nome, descricao, preco, estoque, categoriaId, fornecedorId },
+      data: { nome, descricao, preco, estoque, imagemUrl, categoriaId, fornecedorId },
     });
-
     console.log(`Produto "${nome}" atualizado com sucesso!`);
     res.status(200).json(produtoatualizado);
   } catch (error) {
-    console.error(`Erro ao atualizar produto com id ${req.params.id}:`, error.message);
     res.status(500).json({ error: "Erro ao atualizar produto." });
   }
 };
 
-// DELETE > Deletar um produto
+// DELETE > Deletar um produto (LÓGICA CORRIGIDA)
 exports.deletarproduto = async (req, res) => {
+  const { id } = req.params;
+  const productId = parseInt(id);
+
   try {
-    const { id } = req.params;
+    // A transação agora deleta as dependências corretas
+    const transacaoDeExclusao = await prisma.$transaction([
+      prisma.review.deleteMany({ where: { produtoId: productId } }),
+      prisma.orderItem.deleteMany({ where: { produtoId: productId } }), // CORRIGIDO: Alvo é OrderItem
+      prisma.product.delete({ where: { id: productId } }),
+    ]);
 
-    // Verifica se o produto existe antes de deletar
-    const produtoExistente = await prisma.product.findUnique({
-      where: { id: parseInt(id) },
-    });
+    const produtodeletado = transacaoDeExclusao[2];
 
-    if (!produtoExistente) {
-      return res.status(404).json({ error: "Produto não encontrado." });
-    }
-
-    const produtodeletado = await prisma.product.delete({
-      where: { id: parseInt(id) },
-    });
-
-    console.log(`Produto de id ${id} deletado com sucesso!`);
+    console.log(`Produto de id ${id} e suas dependências foram deletados com sucesso!`);
     res.status(200).json(produtodeletado);
+    
   } catch (error) {
-    console.error(`Erro ao deletar produto com id ${req.params.id}:`, error.message);
-    res.status(500).json({ error: "Erro ao deletar produto." });
+    console.error(`Erro ao deletar produto com id ${id}:`, error);
+    if (error.code === 'P2025') {
+        return res.status(404).json({ error: 'Produto não encontrado para deletar.' });
+    }
+    res.status(500).json({ error: "Erro no servidor ao deletar o produto." });
   }
 };

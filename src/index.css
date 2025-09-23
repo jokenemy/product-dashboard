@@ -1,4 +1,17 @@
-body{
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Estilos para a imagem de fundo única */
   background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJthhva78-3JeGM1tlQ4Phr63RFYbmiCu7sA&s');
-  color:black;
-  }
+  background-size: cover; /* Cobre toda a área */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  background-position: center center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Mantém a imagem fixa durante o scroll */
+  min-height: 100vh;
+  color: black;
+}

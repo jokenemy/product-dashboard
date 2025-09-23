@@ -19,7 +19,7 @@ model Category {
   nome     String
   tamanho  String
   sexo     String
-  produtos Product[]  // relação inversa com Product
+  produtos Product[]
 }
 
 model Supplier {
@@ -27,51 +27,60 @@ model Supplier {
   nome     String
   email    String    @unique
   contato  String
-  produtos Product[]  // relação inversa com Product
+  produtos Product[]
 }
 
 model Client {
-  id      Int    @id @default(autoincrement())
-  nome    String
-  idade   Int
-  sexo    String
-  email   String @unique
-  contato String
-  pedidos Order[] // relação inversa com Order
-  avaliacoes Review[] // relação inversa com Review
+  id         Int      @id @default(autoincrement())
+  nome       String
+  idade      Int
+  sexo       String
+  email      String   @unique
+  contato    String
+  pedidos    Order[]
+  avaliacoes Review[]
 }
 
 model Product {
-  id           Int      @id @default(autoincrement())
+  id           Int         @id @default(autoincrement())
   nome         String
   descricao    String
   preco        Float
   estoque      Int
+  imagemUrl    String?
   categoriaId  Int
-  categoria    Category @relation(fields: [categoriaId], references: [id])
+  categoria    Category    @relation(fields: [categoriaId], references: [id])
   fornecedorId Int
-  fornecedor   Supplier @relation(fields: [fornecedorId], references: [id])
-  pedidos      Order[]  // relação inversa com Order
-  avaliacoes   Review[] // relação inversa com Review
+  fornecedor   Supplier    @relation(fields: [fornecedorId], references: [id])
+  avaliacoes   Review[]
+  orderItems   OrderItem[] // Relação com OrderItem
 }
 
 model Order {
-  id         Int      @id @default(autoincrement())
-  data       DateTime @default(now())
+  id        Int         @id @default(autoincrement())
+  data      DateTime    @default(now())
+  total     Float
+  clienteId Int
+  cliente   Client      @relation(fields: [clienteId], references: [id])
+  items     OrderItem[] // Um pedido agora tem vários itens
+}
+
+model OrderItem {
+  id         Int     @id @default(autoincrement())
   quantidade Int
-  total      Float
+  preco      Float // Preço do produto no momento da compra
+  orderId    Int
+  order      Order   @relation(fields: [orderId], references: [id])
+  produtoId  Int
+  produto    Product @relation(fields: [produtoId], references: [id])
+}
+
+model Review {
+  id         Int      @id @default(autoincrement())
+  nota       Int
+  comentario String
   produtoId  Int
   produto    Product  @relation(fields: [produtoId], references: [id])
   clienteId  Int
   cliente    Client   @relation(fields: [clienteId], references: [id])
-}
-
-model Review {
-  id        Int      @id @default(autoincrement())
-  nota    Int
-  comentario String
-  produtoId Int
-  produto   Product  @relation(fields: [produtoId], references: [id])
-  clienteId Int
-  cliente   Client   @relation(fields: [clienteId], references: [id])
 }

@@ -1,128 +1,58 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://686d00cd14219674dcc9fce0.mockapi.io/"
+  baseURL: "http://localhost:5000",
 });
 
-export async function buscarprodutos() {
-  const response = await api.get("/produtos");
-  return response.data;
-}
+// Padronizando todos os exports para o formato 'export const'
 
-export async function criarproduto(produto) {
-  const response = await api.post("/produtos", produto);
-  return response.data;
-}
+// Produtos
+export const listarProdutos = () => api.get("/produtos");
+export const buscarProdutoPorId = (id) => api.get(`/produtos/${id}`);
+export const criarProduto = (produto) => api.post("/produtos", produto);
+export const atualizarProduto = (id, produto) => api.put(`/produtos/${id}`, produto);
+export const removerProduto = (id) => api.delete(`/produtos/${id}`);
 
-export async function atualizarproduto(id, produto) {
-  const response = await api.put(`/produtos/${id}`, produto);
-  return response.data;
-}
+// Categorias
+export const listarCategorias = () => api.get("/categorias");
+export const buscarCategoriaPorId = (id) => api.get(`/categorias/${id}`);
+export const criarCategoria = (categoria) => api.post("/categorias", categoria);
+export const atualizarCategoria = (id, categoria) => api.put(`/categorias/${id}`, categoria);
+export const deletarCategoria = (id) => api.delete(`/categorias/${id}`);
 
-export async function deletarproduto(id) {
-  const response = await api.delete(`/produtos/${id}`);
-  return response.data;
-}
+// Clientes
+export const listarClientes = () => api.get("/clientes");
+export const buscarClientePorId = (id) => api.get(`/clientes/${id}`);
+export const criarCliente = (cliente) => api.post("/clientes", cliente);
+export const atualizarCliente = (id, cliente) => api.put(`/clientes/${id}`, cliente);
+export const deletarCliente = (id) => api.delete(`/clientes/${id}`);
 
-export async function listarproduto(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
+// Pedidos
+export const listarPedidos = () => api.get("/pedidos");
+export const buscarPedidoPorId = (id) => api.get(`/pedidos/${id}`);
+export const criarPedido = (pedido) => api.post("/pedidos", pedido);
+export const atualizarPedido = (id, pedido) => api.put(`/pedidos/${id}`, pedido);
+export const deletarPedido = (id) => api.delete(`/pedidos/${id}`);
 
-export async function listarcategorias(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscarcategoriasporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criarcategorias(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletarcategoria(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function listarclientes(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscarclienteporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criarcliente(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletarcliente(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function listarpedidos(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criarpedido(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscarpedidoporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletarpedido(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function listaravaliacoes(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscaravaliacaoporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criaravaliacao(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletaravaliacao(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criarfornecedor(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function listarfornecedores(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscarfornecedorporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletarfornecedor(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function listarusuarios(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function buscarusuarioporid(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function criarusuario(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
-export async function deletarusuario(id) {
-  const response = await api.get(`/produtos/${id}`);
-  return response.data;
-}
+// Avaliações
+export const listarAvaliacoes = () => api.get("/avaliacoes");
+export const buscarAvaliacaoPorId = (id) => api.get(`/avaliacoes/${id}`);
+export const criarAvaliacao = (avaliacao) => api.post("/avaliacoes", avaliacao);
+export const atualizarAvaliacao = (id, avaliacao) => api.put(`/avaliacoes/${id}`, avaliacao);
+export const deletarAvaliacao = (id) => api.delete(`/avaliacoes/${id}`);
+
+// Fornecedores
+export const listarFornecedores = () => api.get("/fornecedores");
+export const buscarFornecedorPorId = (id) => api.get(`/fornecedores/${id}`);
+export const criarFornecedor = (fornecedor) => api.post("/fornecedores", fornecedor);
+export const atualizarFornecedor = (id, fornecedor) => api.put(`/fornecedores/${id}`, fornecedor);
+export const deletarFornecedor = (id) => api.delete(`/fornecedores/${id}`);
+
+// Usuários
+export const listarUsuarios = () => api.get("/usuarios");
+export const buscarUsuarioPorId = (id) => api.get(`/usuarios/${id}`);
+export const criarUsuario = (usuario) => api.post("/usuarios", usuario);
+export const atualizarUsuario = (id, usuario) => api.put(`/usuarios/${id}`, usuario);
+export const deletarUsuario = (id) => api.delete(`/usuarios/${id}`);
+
 export default api;
