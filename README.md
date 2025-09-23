@@ -35,28 +35,11 @@ URL base para o ambiente de desenvolvimento: http://localhost:5000
 
 As requisições para a API devem seguir os padrões RESTful:
 
-||
-||
-||
-||
-||
-||
-||
 
 **Respostas**
 
 Os códigos de resposta HTTP indicam o sucesso ou falha da requisição:
 
-||
-||
-||
-
-||
-||
-||
-||
-||
-||
 
 **Limites** **(Throttling)**
 
